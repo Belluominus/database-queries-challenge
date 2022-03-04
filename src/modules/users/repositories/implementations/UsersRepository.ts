@@ -26,7 +26,7 @@ export class UsersRepository implements IUsersRepository {
       .from(Game, "games")
       .innerJoin("users_games_games", "users_games_games","users_games_games.gamesId = games.id")
       .where("users_games_games.usersId = :usersId", {usersId: user.id})
-      .orderBy("users_games_games.gamesId")
+      .orderBy("users_games_games")
       .getMany()
     
     user.games = games
